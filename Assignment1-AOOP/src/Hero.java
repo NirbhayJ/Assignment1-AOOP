@@ -1,5 +1,7 @@
 /**
  * @author Nirbhay Jadhav
+ * Date :- 29 JAN 2015
+ * program build to calculate the hero's strength,speed,health,damage and hit using constroctor and private,public method.
  *@version 1.01
  */
 public class Hero 
@@ -28,39 +30,43 @@ public class Hero
 		
 		
 		//call method abilities
-	public void show() {
-		System.out.println("Strength:" + this.strength);
-		System.out.println("Speed:" + this.speed);
-		System.out.println("health:" + this.health);
-	}
-	
-	//private methods----------------------------------------------------
-	
-	//this methods will generate hero's abilities
-	private void generateAbilities() {
-		
-		this.strength = (int)(Math.random()*100+1);
-		this.speed = (int)(Math.random()*100+1);
-		this.health = (int)(Math.random()*100+1);
-	}
-	
-	//this method will determine is the hero's been hit or no
-	private boolean hitAttempt() {
-		int check = (int)(Math.random()*100+1);
-		if(check > 1 && check < 21) { //to make it 20% chance of hit
-			System.out.println("Hero has been hit.");
-			hitDamage();
-			return true;
+		public void show() 
+		{
+			System.out.println("Strength:" + this.strength);
+			System.out.println("Speed:" + this.speed);
+			System.out.println("health:" + this.health);
 		}
-		else {
-		return false;
-		}
-	}
 	
-	//if the hero's been hit, this method will calculate hero's damage
-	private int hitDamage() {
+		//call method abilities
+		private void generateAbilities() 
+		{
+			this.strength = (int)(Math.random()*100+1);
+			this.speed = (int)(Math.random()*100+1);
+			this.health = (int)(Math.random()*100+1);
+		}
+	
+		// call method hit attempt
+		private boolean hitAttempt()
+		{
+			int check = (int)(Math.random()*100+1);
+			if(check > 1 && check < 21) 
+			{ 
+				System.out.println("-->Hero has been hit");
+				hitDamage();
+				return true;
+			}
+			else 
+				{
+					System.out.println("-->Hero not has been hit.");
+					return false;
+				}
+		}
+	
+	//call method hit damage
+	private int hitDamage() 
+	{
 		int damage = strength * (int)(Math.random()*6+1);
-		System.out.println("The damage is " + damage);
+		System.out.println("The damage = " + damage);
 		return damage;
 	}
 }
